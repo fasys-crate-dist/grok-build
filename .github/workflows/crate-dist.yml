@@ -1,0 +1,17 @@
+name: Create crate dist
+
+on:
+  workflow_dispatch:
+
+jobs:
+  crate-dist:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Create crate dist
+        uses: projg2/crate-dist-action@v1
+        with:
+          directories: crates/codegen/xai-grok-pager-bin
+          dist-filename: grok-build-0.1.220_alpha4-crates.tar.xz
+          run-cargo-update: false
