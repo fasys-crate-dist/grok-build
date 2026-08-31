@@ -1,7 +1,9 @@
 name: Create crate dist
 
 on:
-  workflow_dispatch:
+  push:
+    tags:
+      - '**'
 
 jobs:
   crate-dist:
@@ -13,5 +15,5 @@ jobs:
         uses: projg2/crate-dist-action@v1
         with:
           directories: crates/codegen/xai-grok-pager-bin
-          dist-filename: grok-build-0.1.220_alpha4-crates.tar.xz
+          dist-filename: grok-build-1.0.13-crates.tar.xz
           run-cargo-update: false
